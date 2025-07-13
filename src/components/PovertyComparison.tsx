@@ -11,7 +11,7 @@ export const PovertyComparison = ({ playerCash }: PovertyComparisonProps) => {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 bg-card border border-border rounded-lg p-4 shadow-lg max-w-xs">
+    <div className="fixed bottom-4 right-4 md:right-4 md:bottom-4 left-4 md:left-auto bg-card border border-border rounded-lg p-4 shadow-lg max-w-xs md:max-w-xs z-40">
       <h3 className="text-sm font-semibold mb-3 text-foreground">Monthly Comparison</h3>
       
       <div className="space-y-3">
@@ -42,7 +42,7 @@ export const PovertyComparison = ({ playerCash }: PovertyComparisonProps) => {
         <div>
           <div className="flex justify-between text-xs mb-1">
             <span>Top 1% average</span>
-            <span>₹{(topPercent / 1000).toFixed(1)}L</span>
+            <span>₹4.6L</span>
           </div>
         </div>
       </div>

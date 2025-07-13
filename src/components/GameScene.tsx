@@ -28,7 +28,7 @@ export const GameScene = ({
 }: GameSceneProps) => {
   return (
     <div 
-      className="min-h-screen pt-20 pb-8 px-4 flex items-center justify-center relative"
+      className="min-h-screen pt-20 pb-32 md:pb-8 px-4 flex items-start justify-center relative"
       style={{
         backgroundImage: backgroundImage ? `url(${backgroundImage})` : undefined,
         backgroundSize: 'cover',
@@ -39,7 +39,7 @@ export const GameScene = ({
         <div className="absolute inset-0 bg-black/30" />
       )}
       
-      <Card className="w-full max-w-2xl relative z-10 bg-card/95 backdrop-blur-sm">
+      <Card className="w-full max-w-2xl relative z-10 bg-card/95 backdrop-blur-sm mt-8 md:mt-16">
         <CardHeader>
           <CardTitle className="text-xl font-semibold text-center">
             {title}
