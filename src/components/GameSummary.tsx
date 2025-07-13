@@ -11,7 +11,7 @@ interface GameSummaryProps {
 }
 
 export const GameSummary = ({ cash, health, education, onReplay }: GameSummaryProps) => {
-  const povertyLine = 3889;
+  const povertyLine = 1860;
   const survived = cash >= 0 && health > 0 && education > 0;
   const abovePovertyLine = cash >= povertyLine;
 

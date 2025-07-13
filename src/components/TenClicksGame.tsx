@@ -140,7 +140,7 @@ export const TenClicksGame = () => {
       case 'immunisation':
         return {
           title: "Mobile Immunisation Team",
-          description: "Today the mobile immunisation team is in town. If you go, you lose a day's wages.",
+          description: "You just remembered that it is the day for your child's routine immunisation.",
           backgroundImage: clinicBg,
           choices: [
             {

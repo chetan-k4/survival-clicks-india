@@ -3,7 +3,7 @@ interface PovertyComparisonProps {
 }
 
 export const PovertyComparison = ({ playerCash }: PovertyComparisonProps) => {
-  const povertyLine = 3889;
+  const povertyLine = 1860;
   const topPercent = 460000; // ₹4.6L
 
   const getProgressWidth = (value: number, max: number) => {
@@ -44,7 +44,6 @@ export const PovertyComparison = ({ playerCash }: PovertyComparisonProps) => {
             <span>Top 1% average</span>
             <span>₹{(topPercent / 1000).toFixed(1)}L</span>
           </div>
-          <div className="w-full bg-top-percent rounded-full h-2" />
         </div>
       </div>
     </div>

@@ -12,7 +12,7 @@ export const GameIntro = ({ onStart }: GameIntroProps) => {
       <Card className="w-full max-w-2xl">
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-bold mb-2">
-            Ten Clicks to Survive
+            4 Clicks to Survive
           </CardTitle>
           <CardDescription className="text-lg">
             A simulation of poverty in rural India
@@ -53,7 +53,7 @@ export const GameIntro = ({ onStart }: GameIntroProps) => {
           <div className="bg-muted rounded-lg p-4">
             <h3 className="font-semibold mb-2">Poverty Context</h3>
             <div className="text-sm text-muted-foreground space-y-1">
-              <div>• Poverty line this month: ₹3,889</div>
+              <div>• Poverty line this month: ₹1,860</div>
               <div>• Top 1% average income: ₹4.6 lakh</div>
               <div>• Your starting position: Below poverty line</div>
             </div>
