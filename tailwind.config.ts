@@ -52,6 +52,12 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Game-specific colors
+				cash: 'hsl(var(--cash-color))',
+				health: 'hsl(var(--health-color))',
+				education: 'hsl(var(--education-color))',
+				'poverty-line': 'hsl(var(--poverty-line))',
+				'top-percent': 'hsl(var(--top-percent))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
