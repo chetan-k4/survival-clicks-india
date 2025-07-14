@@ -231,12 +231,6 @@ export const TenClicksGame = () => {
 
   return (
     <>
-      <GameHUD 
-        cash={gameState.cash}
-        health={gameState.health}
-        education={gameState.education}
-      />
-      
       <GameScene
         title={sceneData.title}
         description={sceneData.description}
@@ -245,6 +239,9 @@ export const TenClicksGame = () => {
         backgroundImage={sceneData.backgroundImage}
         centerImage={sceneData.centerImage}
         centerImageSize={sceneData.centerImageSize}
+        cash={gameState.cash}
+        health={gameState.health}
+        education={gameState.education}
       />
       
       <GameAlert
