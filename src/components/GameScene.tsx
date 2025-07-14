@@ -73,7 +73,7 @@ export const GameScene = ({
             <Button
               key={index}
               variant="outline"
-              className="option w-full h-auto p-6 text-left justify-start whitespace-normal font-bold text-[18px] rounded-[16px] border-[2px] border-[#25395B] bg-[#F7F7F7] hover:bg-[#33CC99] hover:text-white hover:border-[#33CC99] transition-colors duration-150"
+              className="option w-full h-auto p-4 text-left justify-start whitespace-normal font-bold text-[18px] rounded-[16px] border-[2px] border-[#25395B] bg-[#F7F7F7] hover:bg-[#33CC99] hover:text-white hover:border-[#33CC99] transition-colors duration-150"
               style={{ boxShadow: '0 2px 8px 0 rgba(0,0,0,0.04)' }}
               onClick={() => onChoice(choice)}
             >
