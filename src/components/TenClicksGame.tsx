@@ -1,17 +1,16 @@
-import { useState, useCallback } from "react";
+import React from "react";
+import { useState, useCallback, useEffect } from "react";
 import { GameHUD } from "./GameHUD";
 import { GameScene, Choice } from "./GameScene";
 import { GameSummary } from "./GameSummary";
 import { GameAlert } from "./GameAlert";
-import { PovertyComparison } from "./PovertyComparison";
 import { GameIntro } from "./GameIntro";
 import { useToast } from "@/hooks/use-toast";
 
 // Import background images
-import clinicBg from "@/assets/clinic-background.jpg";
-import schoolBg from "@/assets/school-background.jpg";
-import jobBg from "@/assets/job-background.jpg";
-import droughtBg from "@/assets/drought-background.jpg";
+import immunisationSvg from "@/assets/Untitled design (2).svg";
+import schoolDueSvg from "@/assets/Untitled design (3).svg";
+import constructionSvg from "@/assets/Untitled design (1).svg";
 
 interface GameState {
   cash: number;
@@ -107,41 +106,17 @@ export const TenClicksGame = () => {
     }
 
     setGameState(prev => ({ ...prev, ...newState }));
-
-    // Auto-play drought scene
-    if (nextScene === 'drought') {
-      setTimeout(() => {
-        const droughtLoss = -1000;
-        const postDroughtCash = (newState.cash ?? gameState.cash) + droughtLoss;
-        
-        if (postDroughtCash < 0) {
-          showAlert("Drought devastation", "The drought wiped out your savings. Economic shocks hit the poor hardest.");
-          return;
-        }
-        
-        setGameState(prev => ({ 
-          ...prev, 
-          cash: postDroughtCash,
-          scene: 'summary',
-          showSummary: true 
-        }));
-        
-        toast({
-          title: "Drought Impact",
-          description: "Income dropped by ₹1,000 due to reduced day-labour demand.",
-          variant: "destructive",
-        });
-      }, 2000);
-    }
   };
 
   const getSceneData = () => {
     switch (gameState.scene) {
       case 'immunisation':
         return {
-          title: "Mobile Immunisation Team",
+          title: "Child's Immunisation Day",
           description: "You just remembered that it is the day for your child's routine immunisation.",
-          backgroundImage: clinicBg,
+          backgroundImage: undefined,
+          centerImage: immunisationSvg,
+          centerImageSize: 'sm' as const,
           choices: [
             {
               text: "Go to clinic (-₹300, +10 health)",
@@ -158,7 +133,9 @@ export const TenClicksGame = () => {
         return {
           title: "School Fees Due",
           description: "The school now charges ₹900 for uniforms and books.",
-          backgroundImage: schoolBg,
+          backgroundImage: undefined,
+          centerImage: schoolDueSvg,
+          centerImageSize: 'sm' as const,
           choices: [
             {
               text: "Pay from savings (-₹900, child advances grade)",
@@ -179,7 +156,9 @@ export const TenClicksGame = () => {
         return {
           title: "Construction Job Opportunity",
           description: "A construction site 15 km away will pay ₹600 more each week if you can commute.",
-          backgroundImage: jobBg,
+          backgroundImage: undefined,
+          centerImage: constructionSvg,
+          centerImageSize: 'sm' as const,
           choices: [
             {
               text: "Buy monthly bus pass (-₹300, +₹600 income)",
@@ -196,18 +175,25 @@ export const TenClicksGame = () => {
           ]
         };
 
-      case 'drought':
+      case 'drought': {
+        // Always show a drought message, even if not wiped out
+        const cashAfterDrought = gameState.cash - 1000;
+        let description = "A drought halves day-labour demand. Income this month drops by ₹1,000.";
+        if (cashAfterDrought < 0) {
+          description += " The drought wiped out your savings. Economic shocks hit the poor hardest.";
+        }
         return {
           title: "Economic Shock",
-          description: "A drought halves day-labour demand. Income this month drops by ₹1,000.",
-          backgroundImage: droughtBg,
+          description,
+          backgroundImage: undefined, // Pure white background
           choices: [
             {
-              text: "Continue (automatic -₹1,000)",
+              text: "Continue (-₹1,000)",
               effects: { cash: -1000 }
             }
           ]
         };
+      }
 
       default:
         return {
@@ -217,6 +203,11 @@ export const TenClicksGame = () => {
         };
     }
   };
+
+  // Scroll to top on scene change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [gameState.scene]);
 
   // Show intro screen
   if (gameState.scene === 'intro') {
@@ -232,7 +223,6 @@ export const TenClicksGame = () => {
           education={gameState.education}
           onReplay={resetGame}
         />
-        <PovertyComparison playerCash={gameState.cash} />
       </>
     );
   }
@@ -253,9 +243,9 @@ export const TenClicksGame = () => {
         choices={sceneData.choices}
         onChoice={applyChoice}
         backgroundImage={sceneData.backgroundImage}
+        centerImage={sceneData.centerImage}
+        centerImageSize={sceneData.centerImageSize}
       />
-      
-      <PovertyComparison playerCash={gameState.cash} />
       
       <GameAlert
         isOpen={alert.isOpen}

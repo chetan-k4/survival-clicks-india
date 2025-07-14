@@ -19,14 +19,21 @@ export default {
 		},
 		extend: {
 			colors: {
-				border: 'hsl(var(--border))',
-				input: 'hsl(var(--input))',
-				ring: 'hsl(var(--ring))',
-				background: 'hsl(var(--background))',
-				foreground: 'hsl(var(--foreground))',
+				'ig-navy': '#25395B',
+				'ig-green': '#33CC99',
+				'ig-sand': '#FFFFFF',
+				'ig-cream': '#FFFFFF',
+				'ig-grey-hover': '#F7F7F7',
+				border: 'var(--ig-navy)',
+				card: 'var(--ig-cream)',
+				background: 'var(--ig-sand)',
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					DEFAULT: '#25395B',
+					foreground: '#FFFFFF',
+				},
+				accent: {
+					DEFAULT: '#33CC99',
+					foreground: '#FFFFFF',
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -40,24 +47,20 @@ export default {
 					DEFAULT: 'hsl(var(--muted))',
 					foreground: 'hsl(var(--muted-foreground))'
 				},
-				accent: {
-					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
-				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
 					foreground: 'hsl(var(--popover-foreground))'
 				},
-				card: {
-					DEFAULT: 'hsl(var(--card))',
-					foreground: 'hsl(var(--card-foreground))'
-				},
 				// Game-specific colors
-				cash: 'hsl(var(--cash-color))',
-				health: 'hsl(var(--health-color))',
-				education: 'hsl(var(--education-color))',
-				'poverty-line': 'hsl(var(--poverty-line))',
-				'top-percent': 'hsl(var(--top-percent))',
+				brand: {
+					green: '#33cc99',
+					navy: '#2b3b5d',
+				},
+				cash: '#fbbf24',
+				health: '#ef4444',
+				education: '#3b82f6',
+				'poverty-line': '#14b8a6',
+				'top-percent': '#a78bfa',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -70,9 +73,12 @@ export default {
 				}
 			},
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				'brand-lg': '40px',
+				'brand-md': '35%',
+				lg: '0.5rem',
+				md: '0.375rem',
+				sm: '0.25rem',
+				none: '0px',
 			},
 			keyframes: {
 				'accordion-down': {
@@ -95,7 +101,16 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+			},
+			fontFamily: {
+				heading: [
+					'Brandon Grotesque',
+					'Inter',
+					'ui-sans-serif',
+					'system-ui',
+					'sans-serif',
+				],
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],

@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+@font-face {
+  font-family: 'Brandon Grotesque';
+  src: local('Brandon Grotesque'), local('BrandonGrotesque-Bold'), url('/fonts/BrandonGrotesque-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,112 +18,41 @@ All colors are HSL for consistency and theming
 
 @layer base {
   :root {
-    /* Warm earth tones inspired by rural India */
-    --background: 35 25% 92%;
-    --foreground: 25 15% 15%;
-
-    --card: 35 20% 95%;
-    --card-foreground: 25 15% 15%;
-
-    --popover: 35 20% 95%;
-    --popover-foreground: 25 15% 15%;
-
-    /* Warm terracotta primary */
-    --primary: 15 65% 45%;
-    --primary-foreground: 35 25% 95%;
-
-    /* Warm beige secondary */
-    --secondary: 35 20% 85%;
-    --secondary-foreground: 25 15% 25%;
-
-    /* Muted earth tones */
-    --muted: 35 15% 88%;
-    --muted-foreground: 25 10% 45%;
-
-    /* Accent warm green */
-    --accent: 85 25% 55%;
-    --accent-foreground: 25 15% 15%;
-
-    /* Health red */
-    --destructive: 0 70% 55%;
-    --destructive-foreground: 35 25% 95%;
-
-    /* Subtle borders */
-    --border: 35 15% 82%;
-    --input: 35 15% 82%;
-    --ring: 15 65% 45%;
-
-    /* Game-specific colors */
-    --cash-color: 45 85% 50%;
-    --health-color: 0 70% 55%;
-    --education-color: 220 60% 50%;
-    --poverty-line: 180 50% 40%;
-    --top-percent: 280 30% 35%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
+    --ig-navy: #25395B;
+    --ig-green: #33CC99;
+    --ig-sand: #FFFFFF;
+    --ig-cream: #FFFFFF;
+    --ig-grey-hover: #F7F7F7;
+    /* Override existing theme variables for new brand */
+    --background: 0 0% 100%;
+    --foreground: 253 39% 36%;
+    --card: 0 0% 100%;
+    --card-foreground: 253 39% 36%;
+    --primary: 220 40% 25%; /* Navy */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 253 39% 36%;
+    --muted: 0 0% 100%;
+    --muted-foreground: 120 2% 40%;
+    --accent: 162 60% 50%; /* Green */
+    --accent-foreground: 0 0% 100%;
+    --border: 220 40% 25%; /* Navy */
+    --input: 220 40% 25%;
+    --ring: 162 60% 50%;
+    --radius: 1.25rem;
   }
 
   body {
-    @apply bg-background text-foreground;
+    background: var(--ig-sand);
+    color: var(--ig-navy);
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3 {
+    font-family: 'Brandon Grotesque', 'Inter', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--ig-navy);
   }
 }
+
+/* Option card and CTA button styles will be handled in component classes */

@@ -8,19 +8,19 @@ interface GameHUDProps {
 
 export const GameHUD = ({ cash, health, education }: GameHUDProps) => {
   return (
-    <div className="fixed top-0 left-0 right-0 bg-card border-b border-border p-4 z-50">
-      <div className="flex justify-between items-center max-w-4xl mx-auto">
-        <div className="flex gap-8">
+    <div className="fixed top-0 left-0 right-0 bg-card border-b border-border p-4 md:py-8 z-50">
+      <div className="flex justify-center items-center w-full">
+        <div className="flex gap-8 md:gap-16 text-base md:text-2xl">
           <div className="flex items-center gap-2">
-            <Coins className="h-5 w-5 text-cash" />
+            <Coins className="h-6 w-6 md:h-8 md:w-8 text-cash" />
             <span className="font-semibold">₹{cash.toLocaleString()}</span>
           </div>
           <div className="flex items-center gap-2">
-            <Heart className="h-5 w-5 text-health" />
+            <Heart className="h-6 w-6 md:h-8 md:w-8 text-health" />
             <span className="font-semibold">{health}/100</span>
           </div>
           <div className="flex items-center gap-2">
-            <BookOpen className="h-5 w-5 text-education" />
+            <BookOpen className="h-6 w-6 md:h-8 md:w-8 text-education" />
             <span className="font-semibold">Grade {education}</span>
           </div>
         </div>
